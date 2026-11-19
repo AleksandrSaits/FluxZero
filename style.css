@@ -1456,3 +1456,120 @@ html,body,#auth,#app{background:var(--bg);background-image:none!important}
   #msgs{padding-left:clamp(24px,5vw,80px)!important;padding-right:clamp(24px,5vw,80px)!important}
   #composer{padding-left:clamp(24px,5vw,80px)!important;padding-right:clamp(24px,5vw,80px)!important}
 }
+
+
+/* FluxZero 2.2 — interface architecture */
+:root{
+  --fz-panel:var(--side);
+  --fz-surface:var(--hover);
+  --fz-stroke:var(--line);
+}
+html,body{height:100%;overscroll-behavior:none}
+body{letter-spacing:-.012em}
+#app{
+  grid-template-columns:minmax(330px,410px) minmax(0,1fr)!important;
+  gap:0!important;
+  padding:0!important;
+  background:var(--bg)!important;
+}
+#side{
+  width:auto!important;max-width:none!important;min-width:0;
+  border:0!important;border-right:1px solid var(--line)!important;
+  border-radius:0!important;background:var(--side)!important;
+  box-shadow:none!important;overflow:hidden;
+}
+#sideHead{padding:20px 22px 14px!important}
+.side-brand{min-height:42px;margin-bottom:18px!important}
+.side-logo{font-size:23px!important;letter-spacing:-1.1px!important}
+.side-actions{gap:5px}
+.side-actions .ibtn{width:34px;height:34px}
+.stories{margin:0 -22px 12px;padding:12px 22px 14px!important;border-bottom:1px solid var(--line)}
+#sh{display:grid!important;grid-template-columns:minmax(0,1fr) 44px;gap:9px!important}
+#sh .pill{height:42px!important;background:var(--bg)!important;border:1px solid var(--line)!important;border-radius:11px!important}
+#sh>.ibtn{height:42px!important;width:42px!important;border-radius:11px!important}
+#chips{padding:7px 18px 12px!important;gap:7px!important;border:0!important}
+#chips button{height:30px;padding:0 12px!important;border-radius:8px!important;background:transparent!important;color:var(--muted)!important}
+#chips button.on{background:var(--accent)!important;color:white!important}
+#list{padding:4px 10px 88px!important;scrollbar-width:thin}
+#list .pin-sep{padding:15px 12px 7px!important;font-size:10px!important;letter-spacing:.12em!important;text-transform:uppercase}
+.row{
+  position:relative;min-height:74px!important;padding:10px 12px!important;
+  border-radius:12px!important;margin:2px 0!important;gap:13px!important;
+  background:transparent!important;box-shadow:none!important;
+}
+.row::after{content:"";position:absolute;left:74px;right:12px;bottom:-2px;height:1px;background:var(--line);opacity:.55}
+.row:last-child::after{display:none}
+.row.on{background:color-mix(in srgb,var(--accent) 10%,var(--side))!important;box-shadow:none!important}
+.row.on::before{content:"";position:absolute;left:0;top:13px;bottom:13px;width:3px;border-radius:0 4px 4px 0;background:var(--accent)}
+.row .ava{width:46px!important;height:46px!important;border-radius:14px!important}
+.row .rt{min-width:0}
+.row .n{font-size:14px!important;font-weight:700!important}
+.row .p{font-size:12px!important;color:var(--muted)!important}
+.row .meta{align-self:flex-start;padding-top:5px!important}
+#fabNew{right:22px!important;bottom:22px!important;width:52px!important;height:52px!important;border-radius:15px!important}
+#chat{
+  min-width:0!important;min-height:0!important;position:relative;
+  display:flex!important;flex-direction:column!important;
+  background:var(--bg)!important;border-radius:0!important;overflow:hidden;
+}
+#chat::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.18;
+  background-image:radial-gradient(var(--muted) .65px,transparent .65px);
+  background-size:22px 22px}
+#chat>*{position:relative}
+.top{
+  flex:none;min-height:68px!important;padding:10px 26px!important;
+  background:var(--side)!important;border-bottom:1px solid var(--line)!important;
+}
+.top .ava{width:42px!important;height:42px!important;border-radius:13px!important}
+#msgs{flex:1;min-height:0;background:transparent!important;padding:24px clamp(22px,5vw,84px) 18px!important}
+.inner{width:100%;max-width:780px!important;margin:0 auto!important;gap:6px!important}
+.day{align-self:center;margin:14px 0 18px!important;padding:5px 11px!important;border-radius:7px!important}
+.b{max-width:min(72%,560px)!important;padding:10px 14px!important;border-radius:14px!important;line-height:1.5!important}
+.b.m{border-bottom-right-radius:4px!important}
+.b.t{border-bottom-left-radius:4px!important}
+#composer{
+  flex:none;width:100%;padding:12px clamp(18px,5vw,84px) max(14px,env(safe-area-inset-bottom))!important;
+  background:var(--side)!important;border-top:1px solid var(--line)!important;
+}
+#composer .cw{width:100%;max-width:780px;margin:0 auto}
+#composer .field{background:var(--bg)!important;border:1px solid var(--line)!important;border-radius:13px!important}
+#send{width:44px!important;height:44px!important;border-radius:12px!important}
+#empty{flex:1;min-height:0;background:transparent!important;display:flex;align-items:center;justify-content:center}
+#empty::before{display:none!important}
+#empty span{
+  display:flex;align-items:center;gap:12px;padding:14px 18px!important;
+  border:1px solid var(--line)!important;border-radius:12px!important;
+  background:var(--side)!important;color:var(--muted)!important;
+}
+#settings{background:var(--bg)!important}
+#settings .tg-page{max-width:720px;margin:0 auto}
+#settings .tg-hero{border-radius:0!important}
+#settings .tg-sec{border-radius:10px!important}
+#tabs{border-radius:12px!important}
+#auth .box{border-radius:18px!important}
+@media(max-width:760px){
+  #app{grid-template-columns:minmax(0,1fr)!important}
+  #side{border-right:0!important}
+  #sideHead{padding:13px 16px 9px!important}
+  .side-brand{margin-bottom:11px!important}
+  .stories{margin:0 -16px 9px;padding:9px 16px 11px!important}
+  #chips{padding:5px 13px 10px!important}
+  #list{padding:2px 7px 78px!important}
+  .row{min-height:68px!important;padding:9px 10px!important}
+  .row::after{left:68px;right:10px}
+  #fabNew{right:16px!important;bottom:16px!important}
+  #chat{border-radius:0!important}
+  .top{min-height:60px!important;padding:7px 12px!important}
+  #msgs{padding:14px 12px 10px!important}
+  .b{max-width:86%!important}
+  #composer{padding:8px 10px max(8px,env(safe-area-inset-bottom))!important}
+}
+@media(min-width:761px){
+  #side{height:100%;max-height:100%;display:flex;flex-direction:column}
+  #sideHead{flex:none}
+  #chips{flex:none}
+  #list{flex:1;min-height:0;overflow-y:auto}
+  #tabs{flex:none;margin:10px 14px 14px!important}
+  #fabNew{right:auto!important;left:330px!important;bottom:86px!important}
+  #settings{flex:1;min-height:0;overflow:auto}
+}
